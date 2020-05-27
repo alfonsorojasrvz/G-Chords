@@ -16,5 +16,6 @@ private MainActivityBinding binding;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         binding = DataBindingUtil.setContentView(this,R.layout.main_activity);
+        binding.setLifecycleOwner(this);
     }
 }
