@@ -9,17 +9,19 @@ import android.os.Bundle;
 
 import rvz.gchords.R;
 import rvz.gchords.databinding.MainActivityBinding;
+import rvz.gchords.viewmodel.MainViewModel;
 
 
 public class MainActivity extends AppCompatActivity {
 private MainActivityBinding binding;
-private ViewModel viewModel;
+private MainViewModel viewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
         binding = DataBindingUtil.setContentView(this,R.layout.main_activity);
         binding.setLifecycleOwner(this);
-        viewModel = new ViewModelProvider(this).get(ViewModel.class);
+        binding.setViewmodel(viewModel);
     }
 }
