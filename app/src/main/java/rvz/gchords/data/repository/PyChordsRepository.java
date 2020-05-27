@@ -2,7 +2,13 @@ package rvz.gchords.data.repository;
 
 import android.text.TextUtils;
 
-import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -42,7 +48,6 @@ public class PyChordsRepository {
         return responseToString(scaleNotesList);
     }
     private String responseToString (List<String> scaleNotesList){
-        String scale = TextUtils.join(",", scaleNotesList);
-        return scale;
+        return TextUtils.join(",", scaleNotesList);
     }
 }
