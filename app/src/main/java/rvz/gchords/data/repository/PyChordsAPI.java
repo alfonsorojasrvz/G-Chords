@@ -5,6 +5,6 @@ import retrofit2.http.GET;
 import rvz.gchords.data.model.Scale;
 
 public interface PyChordsAPI {
-    @GET("")
+    @GET("api/notes/")
     Call<Scale> getScale();
 }
