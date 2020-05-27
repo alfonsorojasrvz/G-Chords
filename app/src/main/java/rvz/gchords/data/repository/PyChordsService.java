@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PyChordsService {
 
-    private static final String BASE_URL = "";
+    private static final String BASE_URL = "http://35.205.70.145:9000";
 
      static Retrofit getRetrofit(){
         return new Retrofit.Builder()
