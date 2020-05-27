@@ -7,7 +7,7 @@ public class PyChordsService {
 
     private static final String BASE_URL = "";
 
-    private static Retrofit getRetrofit(){
+     static Retrofit getRetrofit(){
         return new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
