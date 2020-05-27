@@ -14,5 +14,7 @@ private MutableLiveData<String> scaleNotes = new MutableLiveData<>();
         String scaleNotesString = pyChordsRepository.getScale();
         scaleNotes.setValue(scaleNotesString);
     }
-
+    public LiveData<String> getScaleNotes(){
+        return scaleNotes;
+    }
 }
