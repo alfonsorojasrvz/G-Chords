@@ -19,9 +19,9 @@ public class PyChordsRepository {
         pyChordsAPI = PyChordsService.getRetrofit().create(PyChordsAPI.class);
     }
 
-    public String getScale() {
+    public String getScale(String note,String scalename) {
 
-        pyChordsAPI.getScale().enqueue(new Callback<Scale>() {
+        pyChordsAPI.getScale(note, scalename).enqueue(new Callback<Scale>() {
             @Override
             public void onResponse(Call<Scale> call, Response<Scale> response) {
                 if (!response.isSuccessful()) {
