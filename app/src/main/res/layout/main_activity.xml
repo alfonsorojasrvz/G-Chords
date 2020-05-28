@@ -22,9 +22,9 @@
             android:layout_marginStart="135dp"
             android:layout_marginLeft="135dp"
             android:layout_marginBottom="185dp"
+            android:onClick="@{()->viewmodel.requestScaleNotes()}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:onClick="@{()->viewmodel.requestScaleNotes()}"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView2"
@@ -34,6 +34,16 @@
             android:layout_marginLeft="154dp"
             android:layout_marginTop="155dp"
             android:text="@{viewmodel.stringScaleNotes}"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="282dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

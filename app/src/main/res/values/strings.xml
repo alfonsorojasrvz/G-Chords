@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">G-Chords</string>
+    <array name="scale_notes">
+        <item>WEbo</item>
+    </array>
+
 </resources>
