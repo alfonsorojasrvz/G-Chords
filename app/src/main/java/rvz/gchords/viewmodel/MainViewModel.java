@@ -25,6 +25,7 @@ public class MainViewModel extends ViewModel {
             public void setScaleNotes(List<String> scaleNotes) {
                 scaleNotesList.setValue(scaleNotes);
                 String str = TextUtils.join(",", scaleNotes);
+                stringScaleNotes.setValue(str);
             }
         });
     }
