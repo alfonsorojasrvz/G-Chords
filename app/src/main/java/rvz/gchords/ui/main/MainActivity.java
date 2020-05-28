@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
              String selectedNote = parent.getItemAtPosition(position).toString();
+             viewModel.setParameters(selectedNote,null);
 
             }
 
