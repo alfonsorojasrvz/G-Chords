@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import rvz.gchords.R;
@@ -36,6 +37,18 @@ public class MainActivity extends AppCompatActivity {
                 R.array.notes, android.R.layout.simple_spinner_item);
         adapterNotes.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.spinner.setAdapter(adapterNotes);
+        binding.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+             String selectedNote = parent.getItemAtPosition(position).toString();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
 }
