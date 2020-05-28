@@ -32,7 +32,7 @@
             android:layout_marginStart="154dp"
             android:layout_marginLeft="154dp"
             android:layout_marginTop="155dp"
-            android:text="TextView"
+            android:text="@{viewmodel.stringScaleNotes}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
