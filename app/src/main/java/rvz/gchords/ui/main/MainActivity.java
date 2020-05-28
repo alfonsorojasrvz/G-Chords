@@ -1,6 +1,7 @@
 package rvz.gchords.ui.main;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,7 +15,7 @@ import rvz.gchords.databinding.MainActivityBinding;
 import rvz.gchords.viewmodel.MainViewModel;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private MainActivityBinding binding;
     private MainViewModel viewModel;
 
@@ -26,29 +27,17 @@ public class MainActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.main_activity);
         binding.setLifecycleOwner(this);
         binding.setViewmodel(viewModel);
-        setNotesSpinner();
         setScaleSpinner();
-
+        setNotesSpinner();
 
     }
 
     private void setScaleSpinner() {
         ArrayAdapter<CharSequence> adapterScale = ArrayAdapter.createFromResource(this,
-                R.array.scale_types,android.R.layout.simple_spinner_item);
+                R.array.scale_types, android.R.layout.simple_spinner_item);
         adapterScale.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.spinner2.setAdapter(adapterScale);
-        binding.spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedScale = parent.getItemAtPosition(position).toString();
-                viewModel.setParameters(null,selectedScale);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        binding.spinner2.setOnItemSelectedListener(this);
     }
 
     private void setNotesSpinner() {
@@ -56,19 +45,27 @@ public class MainActivity extends AppCompatActivity {
                 R.array.notes, android.R.layout.simple_spinner_item);
         adapterNotes.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.spinner.setAdapter(adapterNotes);
-        binding.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedNote = parent.getItemAtPosition(position).toString();
-                viewModel.setParameters(selectedNote, null);
+        binding.spinner.setOnItemSelectedListener(this);
 
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+
+        if (parent.getId() == binding.spinner.getId()) {
+            String selectedNote = parent.getItemAtPosition(position).toString();
+            viewModel.setParameters(selectedNote, null);
+        }
+        if (parent.getId() == binding.spinner2.getId()) {
+            String selectedScale = parent.getItemAtPosition(position).toString();
+            viewModel.setParameters(null, selectedScale);
+        }
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
