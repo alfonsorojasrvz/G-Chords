@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
+import android.view.View;
 
 import rvz.gchords.R;
 import rvz.gchords.databinding.MainActivityBinding;
@@ -23,5 +24,11 @@ private MainViewModel viewModel;
         binding = DataBindingUtil.setContentView(this,R.layout.main_activity);
         binding.setLifecycleOwner(this);
         binding.setViewmodel(viewModel);
+        binding.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewModel.requestScaleNotes();
+            }
+        });
     }
 }
