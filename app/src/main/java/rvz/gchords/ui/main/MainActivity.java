@@ -27,8 +27,28 @@ public class MainActivity extends AppCompatActivity {
         binding.setLifecycleOwner(this);
         binding.setViewmodel(viewModel);
         setNotesSpinner();
+        setScaleSpinner();
 
 
+    }
+
+    private void setScaleSpinner() {
+        ArrayAdapter<CharSequence> adapterScale = ArrayAdapter.createFromResource(this,
+                R.array.scale_types,android.R.layout.simple_spinner_item);
+        adapterScale.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        binding.spinner2.setAdapter(adapterScale);
+        binding.spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedScale = parent.getItemAtPosition(position).toString();
+                viewModel.setParameters(null,selectedScale);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     private void setNotesSpinner() {
