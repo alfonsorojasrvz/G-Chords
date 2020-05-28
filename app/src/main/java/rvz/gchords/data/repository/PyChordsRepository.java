@@ -24,8 +24,6 @@ public class PyChordsRepository {
             @Override
             public void onResponse(Call<Scale> call, Response<Scale> response) {
 
-                int size = response.body().getResponse().size();
-                Log.d(String.valueOf(size), "onResponse: ");
                 strings.addAll(response.body().getResponse());
                 callback.setScaleNotes(strings);
 

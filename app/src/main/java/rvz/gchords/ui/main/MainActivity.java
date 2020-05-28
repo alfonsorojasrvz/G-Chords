@@ -1,14 +1,13 @@
 package rvz.gchords.ui.main;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 
 import rvz.gchords.R;
 import rvz.gchords.databinding.MainActivityBinding;
@@ -40,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         binding.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-             String selectedNote = parent.getItemAtPosition(position).toString();
-             viewModel.setParameters(selectedNote,null);
+                String selectedNote = parent.getItemAtPosition(position).toString();
+                viewModel.setParameters(selectedNote, null);
 
             }
 
