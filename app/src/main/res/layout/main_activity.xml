@@ -23,7 +23,8 @@
             android:layout_marginLeft="135dp"
             android:layout_marginBottom="185dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="@{()->viewmodel.requestScaleNotes()}"/>
 
         <TextView
             android:id="@+id/textView2"
