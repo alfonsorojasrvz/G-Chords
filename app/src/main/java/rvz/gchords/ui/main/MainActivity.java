@@ -1,6 +1,7 @@
 package rvz.gchords.ui.main;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -50,11 +51,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        if (view.getId() == binding.spinner.getId()) {
+
+
+        if (parent.getId() == binding.spinner.getId()) {
             String selectedNote = parent.getItemAtPosition(position).toString();
             viewModel.setParameters(selectedNote, null);
         }
-        if (id == binding.spinner.getId()) {
+        if (parent.getId() == binding.spinner2.getId()) {
             String selectedScale = parent.getItemAtPosition(position).toString();
             viewModel.setParameters(null, selectedScale);
         }
