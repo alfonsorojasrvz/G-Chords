@@ -17,15 +17,13 @@ public class PyChordsRepository {
         pyChordsAPI = PyChordsService.getRetrofit().create(PyChordsAPI.class);
     }
 
-
     public void requestScaleNotes(String note, String scalename, OnScaleResponse callback) {
-
 
         pyChordsAPI.getScale(note, scalename).enqueue(new Callback<Scale>() {
 
-
             @Override
             public void onResponse(Call<Scale> call, Response<Scale> response) {
+
                 int size = response.body().getResponse().size();
                 Log.d(String.valueOf(size), "onResponse: ");
                 strings.addAll(response.body().getResponse());
