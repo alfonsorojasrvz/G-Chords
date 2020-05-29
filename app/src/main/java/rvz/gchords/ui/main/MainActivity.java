@@ -36,16 +36,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         ArrayAdapter<CharSequence> adapterScale = ArrayAdapter.createFromResource(this,
                 R.array.scale_types, android.R.layout.simple_spinner_item);
         adapterScale.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        binding.spinner2.setAdapter(adapterScale);
-        binding.spinner2.setOnItemSelectedListener(this);
+        binding.spinnerScale.setAdapter(adapterScale);
+        binding.spinnerScale.setOnItemSelectedListener(this);
     }
 
     private void setNotesSpinner() {
         ArrayAdapter<CharSequence> adapterNotes = ArrayAdapter.createFromResource(this,
                 R.array.notes, android.R.layout.simple_spinner_item);
         adapterNotes.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        binding.spinner.setAdapter(adapterNotes);
-        binding.spinner.setOnItemSelectedListener(this);
+        binding.spinnerNote.setAdapter(adapterNotes);
+        binding.spinnerNote.setOnItemSelectedListener(this);
 
     }
 
@@ -53,11 +53,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
 
-        if (parent.getId() == binding.spinner.getId()) {
+        if (parent.getId() == binding.spinnerNote.getId()) {
             String selectedNote = parent.getItemAtPosition(position).toString();
             viewModel.setParameters(selectedNote, null);
         }
-        if (parent.getId() == binding.spinner2.getId()) {
+        if (parent.getId() == binding.spinnerScale.getId()) {
             String selectedScale = parent.getItemAtPosition(position).toString();
             viewModel.setParameters(null, selectedScale);
         }

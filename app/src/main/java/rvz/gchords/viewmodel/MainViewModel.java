@@ -15,12 +15,12 @@ public class MainViewModel extends ViewModel {
     private MutableLiveData<List<String>> scaleNotesList = new MutableLiveData<List<String>>();
     private MutableLiveData<String> stringScaleNotes = new MutableLiveData<>();
     private String note ;
-    private String scaleType;
+    private String scale;
 
 
     public void requestScaleNotes() {
         PyChordsRepository pyChordsRepository = new PyChordsRepository();
-        pyChordsRepository.requestScaleNotes(note, scaleType, new OnScaleResponse() {
+        pyChordsRepository.requestScaleNotes(note, scale, new OnScaleResponse() {
             @Override
             public void setScaleNotes(List<String> scaleNotes) {
                 scaleNotesList.setValue(scaleNotes);
@@ -40,7 +40,7 @@ public class MainViewModel extends ViewModel {
     public void setParameters(String note,String scaleType){
 
         if(note!=null){this.note = note;}
-        if(scaleType!=null){this.scaleType=scaleType;}
+        if(scaleType!=null){this.scale =scaleType;}
     }
 
 
